@@ -24,9 +24,9 @@ router.get('/new', (req,res) => {
 
 //create author route
 router.post('/', async(req,res) => {
-    let locals = { errorMessage : `something went wrong` }
+    
     const author=new Author({
-        name:req.body.name
+        name:req.body.name.trim()
     })
     try{
         const newAuthor = await author.save()
